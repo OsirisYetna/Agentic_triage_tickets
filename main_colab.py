@@ -10,8 +10,8 @@ def main():
         tickets = json.load(f)
 
     # Initialization of the llm and creation of the agent
-    llm = HFLLM(model_name="google/flan-t5-small", max_tokens=128)
-    agent = Agent(llm)
+    llm = HFLLM(model_name="google/flan-t5-base", max_tokens=256) # Better and heavier LLM than flan-t5-small 
+    agent = Agent(llm, True)
 
     # storage for the event I will download in the csv
     results_list = []
@@ -48,7 +48,7 @@ def main():
         })
 
     # Writing in a-the csv
-    csv_file = "results_prompt_improved.csv"
+    csv_file = "results_colab.csv"
     with open(csv_file, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=results_list[0].keys())
         writer.writeheader()
