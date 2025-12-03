@@ -4,7 +4,7 @@ Utils function for concision and readability that will summarize and trigger act
 """
 import re
 from typing import Dict, Any, Tuple
-from llm import HFLLM
+from .llm import HFLLM
 
 def summarize_ticket_with_llm(text: str) -> str:
     """Summarizing the tickets with an LLM

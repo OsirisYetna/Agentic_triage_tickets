@@ -3,9 +3,9 @@ import json
 import time
 from typing import Dict, Any
 
-from llm import HFLLM
-from utils import summarize_ticket, score_urgency, escalate_action
-from prompt import CONTEXT, INITIAL_TEMPLATE, FOLLOWUP_TEMPLATE
+from .llm import HFLLM
+from .utils import summarize_ticket, score_urgency, escalate_action
+from .prompt import CONTEXT, INITIAL_TEMPLATE, FOLLOWUP_TEMPLATE
 
 class Agent:
     """Agent which will deal with the tickets"""
