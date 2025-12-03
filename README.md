@@ -41,7 +41,7 @@ Agentic_triage_tickets/
 1. Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/OsirisYetna/Agentic_triage_tickets.git
 cd Agentic_triage_tickets
 ```
 
@@ -56,14 +56,6 @@ source venv/bin/activate
 
 ```bash
 pip install -r requirements.txt
-```
-
-Example `requirements.txt`:
-
-```
-transformers
-torch
-pandas
 ```
 
 ---
