@@ -1,0 +1,4 @@
+ticket_id,customer_tier,created_at,channel,summary,urgency,urgency_conf,action
+TICKET-001,VIP,2025-12-03T10:00:00,email,The service is down and we are experiencing data loss.,P0,0.95,Immediate: page on-call + create incident ticket; assign to the lead IT engineer notify account manager.
+TICKET-002,standard,2025-12-03T11:30:00,chat,I cannot login to my account.,P1,0.8,High: assign it to engineer of the team 2 and notify Product Manager and the account manager.
+TICKET-003,enterprise,2025-12-03T12:00:00,phone,The website is slow and latency is high during peak hours.,P2,0.7,Medium: request logs from customer and schedule triage.

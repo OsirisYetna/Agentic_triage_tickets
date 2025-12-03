@@ -3,14 +3,25 @@ import json
 import time
 from typing import Dict, Any
 
-from llm import HFLLM
-from utils import summarize_ticket, score_urgency, escalate_action
-from prompt import CONTEXT, INITIAL_TEMPLATE, FOLLOWUP_TEMPLATE
+from .llm import HFLLM
+from .utils import summarize_ticket, score_urgency, escalate_action
+from .prompt import CONTEXT, INITIAL_TEMPLATE, FOLLOWUP_TEMPLATE
+from .prompt_colab import CONTEXT_COLAB, INITIAL_TEMPLATE_COLAB, FOLLOWUP_TEMPLATE_COLAB
 
 class Agent:
     """Agent which will deal with the tickets"""
-    def __init__(self, llm: HFLLM):
+    def __init__(self, llm: HFLLM, colab=False):
         self.llm = llm
+        if colab:
+            self.context = CONTEXT_COLAB
+            self.initial_template = INITIAL_TEMPLATE_COLAB
+            self.followup_template = FOLLOWUP_TEMPLATE_COLAB
+        else:
+            self.context = CONTEXT
+            self.initial_template = INITIAL_TEMPLATE
+            self.followup_template = FOLLOWUP_TEMPLATE
+
+
 
     def run(self, ticket: Dict[str, Any], max_steps: int = 5) -> Dict[str, Any]:
 
@@ -33,8 +44,8 @@ class Agent:
 
         # Giving the context to the LLM 
         # (the utils functions available, the output format, the text and the metadata)
-        prompt = INITIAL_TEMPLATE.format(
-            context=CONTEXT, 
+        prompt = self.initial_template.format(
+            context=self.context, 
             metadata=json.dumps(metadata),
             text=ticket.get('text','')
             )
@@ -79,8 +90,8 @@ class Agent:
                 break
 
             # Prompt for the next step detailed in the FOLLOWUP_TEMPLATE template
-            prompt = FOLLOWUP_TEMPLATE.format(
-                context=CONTEXT,
+            prompt = self.followup_template.format(
+                context=self.context,
                 observation=observation,
                 summary=state.get('summary'),
                 urgency=state.get('urgency'),
