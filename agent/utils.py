@@ -8,8 +8,9 @@ from llm import HFLLM
 
 def summarize_ticket_with_llm(text: str) -> str:
     """Summarizing the tickets with an LLM
-    Allowing more complex and richer summarizing of each tickets
-    But it take too much time and long to compute only with a CPU
+    Allowing more complex, natural and richer summarizing of each tickets
+    But it take too much time and it is long to compute only with a CPU
+    For the use case, I will not use it
     """
     llm = HFLLM()
     prompt = f"Summarize this ticket in one concise sentence:\n{text}"
