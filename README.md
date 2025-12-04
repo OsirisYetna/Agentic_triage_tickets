@@ -115,7 +115,7 @@ Trace of decisions:
 
 ---
 
-## Notes / Tips
+## Notes
 
 - CPU testing is limited by the small LLM (flan-t5-small), so often only summaries are generated.
 - For reliable action selection and JSON output, use GPU/Colab with flan-t5-base or large.
