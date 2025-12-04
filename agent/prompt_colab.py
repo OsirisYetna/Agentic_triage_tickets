@@ -29,5 +29,7 @@ Previous Observation: {observation}
 Summary so far: {summary}
 Urgency so far: {urgency}
 Action so far: {action}
-Choose the next action to take and return it as valid JSON.
+
+Choose next action from tools: summarize_ticket, score_urgency, escalate_action.
+Reply with a JSON object with keys thoughts, action, input.
 """

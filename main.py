@@ -10,7 +10,7 @@ def main():
         tickets = json.load(f)
 
     # Initialization of the llm and creation of the agent
-    llm = HFLLM(model_name="google/flan-t5-small", max_tokens=128)
+    llm = HFLLM(model_name="google/flan-t5-small", max_tokens=128) # for the cpu, google/flan-t5-large for a GPU
     agent = Agent(llm)
 
     # storage for the event I will download in the csv

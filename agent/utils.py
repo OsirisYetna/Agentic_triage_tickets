@@ -33,7 +33,8 @@ def score_urgency(text: str, metadata: Dict[str, Any]) -> Tuple[str, float]:
     """Assigns an urgency level to a support ticket based on its text content and metadata.
     Output: 
     - level: str : urgency level of the ticket (P0, P1, P2, P3)
-    - confidence: float : a float between 0 and 1 indicating how sure the scoring is
+    - confidence: float : a float between 0 and 1 indicating how sure the scoring is,
+                         allowing us to prioritize actions with same urgency level
     Helps the agent prioritize tickets and optionally take extra steps if confidence is low
     """
     
